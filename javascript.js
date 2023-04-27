@@ -20,7 +20,7 @@ async function fetchMoviesNowPlaying()
     const jsonResponse=await response.json();
     const movies=jsonResponse.results;
     displayMovies(movies);
-    console.log(movies);
+    // console.log(movies);
 
 }
 
@@ -30,7 +30,7 @@ async function searchMovies(query)
     const response=await fetch(`${apiBaseURL}/search/movie?api_key=${apikey}&query=${query}`);
     // await as it is being converted into a json File
     const jsonResponse=await response.json();
-    const movies=jsonResponse.results;
+    const movies=jsonResponse.results;  
     displayMovies(movies);
     // console.log(movies);
 
@@ -102,41 +102,6 @@ function displayMovieDetails(movieDetails) {
     document.body.appendChild(popup);
   }
   
-
-
-// function displayMovieDetails(movieDetails) {
-    
-//   const popup = document.createElement("div");
-//   popup.classList.add("popup");
-
-//   const popupContent = `
-//     <div class="popup-inner">
-//       <div class="popup-poster">
-//         <img src="${imageBaseURL}${movieDetails.poster_path}" />
-//       </div>
-//       <div class="popup-details">
-//         <h2>${movieDetails.title} (${movieDetails.release_date.substring(0, 4)})</h2>
-//         <p>⭐   ${movieDetails.vote_average} </p>
-//         <p><strong>Genres:</strong> ${movieDetails.genres.map(genre => genre.name).join(", ")}</p>
-//         <p><strong>Overview:</strong> ${movieDetails.overview}</p>
-//       </div>
-//     </div>
-//   `;
-
-//   popup.innerHTML = popupContent;
-
-//   const closeButton = document.createElement("button");
-//   closeButton.classList.add("popup-close");
-//   closeButton.innerText = "Close";
-//   closeButton.addEventListener("click", () => {
-//     popup.remove();
-//   });
-
-//   popup.appendChild(closeButton);
-
-//   document.body.appendChild(popup);
-// }
-
 
 function handleFavoriteBtnClick(event) {
     const movieId = event.target.dataset.id;
